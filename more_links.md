@@ -72,6 +72,7 @@ Generally used with the 'symbolic' `-s` flag, which allows directories to be lin
 - `bzip2`: compress and decompress files. More efficient but slower than `gzip`.
 - `wget`: 'webget', download files without interaction
 - `curl`: More modern `wget`
+- `xdg-open`: Open files by their filetype, exactly as if clicked on in a GUI
 - [`telnet`](https://en.wikipedia.org/wiki/Telnet): 'Teletype network',
 access remote servers at the lowest application level
 - `links` or `lynx` or `elinks`: terminal based web browsers
