@@ -261,6 +261,38 @@ various helpful resources
 - Misc open-source [docs](https://readthedocs.io)
 - Obfuscate [email addresses](https://www.codeproject.com/Articles/8088/Avoiding-spam-bots) (to prevent spambots)
 
+## File recovery
+First, UNMOUNT THE DRIVE.
+
+### Linux
+- [debugfs](https://linux.die.net/man/8/debugfs)
+- [ext3grep](https://packages.debian.org/stable/ext3grep)
+- [ddrescue](https://packages.debian.org/stable/utils/gddrescue)
+([GUI](https://packages.debian.org/stable/ddrescueview))
+- with [Midnight Commander](https://www.datarecoverypros.com/recover-linux-midnightcommander.html)
+- [extundelete](http://extundelete.sourceforge.net/)
+([Guide](https://wiki.archlinux.org/index.php/file_recovery#Extundelete))
+- [e2fsck](http://phpunixman.sourceforge.net/index.php/man/e2fsck/8)
+- [ext4magic](http://ext4magic.sourceforge.net/ext4magic_en.html)
+
+### Windows
+- [Freeware](https://www.piriform.com/recuva), closed-source but works reliably
+([direct link](https://download.piriform.com/rcsetup153.exe))
+
+### Both
+- [Foremost][foremost],
+developed by the US Air Force Office of Special Investigations
+- [Scalpel](https://github.com/sleuthkit/scalpel), based on [Foremost][foremost]
+- [TestDisk](https://www.cgsecurity.org/wiki/TestDisk),
+can recover unbootable partitions
+- [PhotoRec](https://www.cgsecurity.org/wiki/PhotoRec), specializes in images
+
+### More suggestions
+- [Stack Overflow](https://unix.stackexchange.com/questions/80270/)
+- [Arch Wiki](https://wiki.archlinux.org/index.php/file_recovery)
+- Making [complete disk copies](https://wiki.archlinux.org/index.php/Disk_cloning)
+from the Arch Wiki
+
 ## Neural Networks:
 - [Courses by MIT](https://courses.csail.mit.edu/)
 - [Tensorflow](https://www.tensorflow.org/get_started/), a Python framework for machine learning
@@ -288,4 +320,4 @@ various helpful resources
 [github]: https://github.com
 [unix]: https://en.wikipedia.org/wiki/Unix
 [file permissions]: https://www.linux.org/threads/file-permissions-chmod.4124/
-
+[foremost]: http://foremost.sourceforge.net/
