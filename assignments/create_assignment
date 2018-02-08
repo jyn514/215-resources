@@ -1,7 +1,8 @@
 #!/bin/sh
 #
 # Test script - written by Nick Stiffler
-# Entry level script to be used by csce215 students.
+# Modified Spring 2018 by Joshua Nelson
+# Entry level script to be used by CSCE 215 students.
 
 if [ $# -eq 1 ]; then
    STUDENTNAME=$USER
