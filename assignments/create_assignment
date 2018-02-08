@@ -36,3 +36,4 @@ else
 	printf "%s" "$DATE" >> $FILENAME
 	printf " - %s\n" "$TIME" >> $FILENAME
 fi
+echo "Created $(realpath "$FILENAME")"
