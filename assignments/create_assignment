@@ -1,20 +1,59 @@
 #!/bin/sh
 #
 # Test script - written by Nick Stiffler
-# Entry level script to be used by csce215 students.
+# Modified Spring 2018 by Joshua Nelson
+# Entry level script to be used by CSCE 215 students.
 
-if [ $# -eq 1 ]; then
-   STUDENTNAME=$USER
-   ASSIGNMENT=$1
-else
-   echo "usage: `basename $0` [assignment]"
-   exit 1
+if [ $# -gt 0 ] ; then
+	echo "Warning: all arguments are ignored"
 fi
 
-if [ ! -d "$ASSIGNMENT" ]; then
-  # Control will enter here if $ASSIGNMENT doesn't exist.
-  mkdir $ASSIGNMENT
+# Takes one argument: a string
+# https://stackoverflow.com/a/3951175
+is_numeric () {
+	case "$1" in
+		''|*[!0-9]*) return 1;;
+		*) return 0;;
+	esac
+}
+
+# Find numbers of directories which already exist
+existing () {
+    ls --color=no --quoting-style=shell-escape | \
+	grep --color=no '^assignment' | egrep -o "[^(assignment_?)]"
+}
+
+# Find largest number of assignments already created
+max () {
+	existing | sort -rn | head -1
+}
+
+lowest_not_existing () {
+	local max=$(max)
+
+	if [ -z $max ]; then
+		max=1
+	else
+		max=$(echo $max + 1 | bc)
+	fi
+
+	if ! is_numeric $max; then
+		1>&2 echo "Internal error: Improperly named directory assignment_$max"
+		exit 2
+	fi
+
+	echo "$max"
+}
+
+ASSIGNMENT="assignment_$(lowest_not_existing)"
+
+if [ -e "$ASSIGNMENT" ]; then
+	echo "Internal error: Directory $ASSIGNMENT already exists"
+	exit 3
 fi
+
+# Make the assignment directory
+mkdir $ASSIGNMENT
 
 # Move into the directory
 cd $ASSIGNMENT
@@ -22,17 +61,10 @@ cd $ASSIGNMENT
 # Variable for the filename
 FILENAME=$USER\_$ASSIGNMENT.txt
 
-HOST=$(hostname)
+{
+	echo "$USER"
+	echo "$(hostname)"
+	echo "$(date +"%m-%d-%Y - %r")"
+} > $FILENAME
 
-DATE=$(date +"%m-%d-%Y")
-TIME=$(date +"%r")
-
-if [ -f "$FILENAME" ]; then
-	sed -i "2s/.*/$HOST/g" "$FILENAME"
-	sed -i "3s/.*/$DATE - $TIME/g" "$FILENAME"
-else 
-	printf "%s\n" "$USER" > $FILENAME
-	printf "%s\n" "$HOST" >> $FILENAME
-	printf "%s" "$DATE" >> $FILENAME
-	printf " - %s\n" "$TIME" >> $FILENAME
-fi
+echo "Created $(realpath "$FILENAME")"
