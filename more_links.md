@@ -319,8 +319,8 @@ from the Arch Wiki
 [Docker containers](https://www.docker.com/what-docker). Costs money.
 
 ## More Resources
-[Free Programming Books](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md)
-[List of Lists of Resources](https://github.com/sindresorhus/awesome)
+- [Free Programming Books](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md)
+- [List of Lists of Resources](https://github.com/sindresorhus/awesome)
 
 [bash man page]: https://www.gnu.org/software/bash/
 [github]: https://github.com
