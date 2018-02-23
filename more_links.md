@@ -229,6 +229,10 @@ I refuse to start an editor war. Find the editor wars on your own.
 [2](https://www.perl.com/pub/2000/10/begperl1.html),
 [3](http://www.perltutorial.org/)
 
+### Awk
+- [GNU Manual](http://doc.cat-v.org/unix/v8/awktut.pdf)
+- [1975 Manual](https://www.gnu.org/software/gawk/manual/gawk.html)
+
 ### Web
 - [Handy infographic](https://i.redd.it/0nodknkfbxcz.jpg)
 - [HTML reference](https://www.w3schools.com/html/default.asp )
