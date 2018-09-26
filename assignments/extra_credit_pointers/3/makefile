@@ -3,8 +3,8 @@ CCFLAGS=-g -Wall -Wpedantic
 # assign ARCHIVE to archives/final-`date -I`.tar.gz; doing it this way evaluates immediately
 ARCHIVE!= printf 'archives/ex3-%s.tar.gz' `date -I`
 
-$(ARCHIVE): archives
-	tar -cvzf $(ARCHIVE) makefile ex3.cpp README
+$(ARCHIVE): makefile ex3.cpp README | archives
+	tar -cvzf $(ARCHIVE) $^
 
 archives:
 	mkdir archives
